@@ -1,0 +1,135 @@
+/* Stats.css for White Background */
+.stats-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: rgba(0, 0, 0, 0.03); /* Light gray background */
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animation effects */
+.stat-card:hover {
+  transform: translateY(-8px);
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* FIXED: Dark text for white background */
+.stat-number {
+  font-size: 3.2rem;
+  font-weight: 700; /* Bolder for better visibility */
+  margin-bottom: 0.8rem;
+  color: #2c3e50 !important; /* Dark blue-gray */
+  letter-spacing: -0.02em;
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover .stat-number {
+  transform: scale(1.05);
+  color: #1a2530 !important; /* Even darker on hover */
+}
+
+.stat-label {
+  color: #5d6d7e !important; /* Medium gray for labels */
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover .stat-label {
+  color: #2c3e50 !important; /* Darker on hover */
+  transform: translateY(2px);
+}
+
+/* Pulse animation for numbers */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.stat-card .stat-number {
+  animation: pulse 3s infinite;
+}
+
+.stat-card:hover .stat-number {
+  animation: none;
+}
+
+/* Alternative gradient for white background */
+.stat-card.gradient .stat-number {
+  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .stat-card {
+    padding: 2rem 1rem;
+    min-height: 150px;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .stat-card {
+    padding: 1.5rem 1rem;
+    min-height: 120px;
+  }
+  
+  .stat-number {
+    font-size: 2.2rem;
+  }
+}

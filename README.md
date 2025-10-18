@@ -1,2 +1,2 @@
-# e-cat-mjexports
-E Catalogue for Premium Side Table
+# mjexports1
+Ecatalogue
