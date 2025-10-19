@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import react from '@viteJs/plugin-react'
+import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,18 +13,13 @@ export default defineConfig({
     }
   },
   build: {
-    // Remove cssCodeSplit: false.
-    // Vite's default CSS handling is usually correct when CSS is imported via JS.
-    // If you explicitly want CSS in separate files, you can set cssCodeSplit: true.
-    // Leaving it out will use Vite's default (which is true for production builds).
+    // This is the CRITICAL change for GitHub Pages deployment to a subpath
+    // It must match your repository name: /<your-repository-name>/
+    base: '/catalogue-mj-exports/', 
 
-    // Remove rollupOptions. Vite usually handles entry points and output chunks automatically
-    // for standard React projects, especially if you're not doing advanced chunking.
-  },
-  // Critical for GitHub Pages - use relative paths
-  base: './',
-  // Optimize dependencies to prevent transformation issues (this is usually fine to keep)
-  optimizeDeps: {
-    include: ['react', 'react-dom']
+    // The 'optimizeDeps' configuration from your original file
+    optimizeDeps: {
+      include: ['react', 'react-dom']
+    }
   }
 })
